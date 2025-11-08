@@ -1,5 +1,4 @@
-﻿#define _CRT_SECURE_NO_WARNINGS
-#define NOMINMAX
+#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
 #include <string>
 #include <vector>
@@ -8,9 +7,6 @@
 #include <iomanip> // Для форматування виводу (setprecision, fixed)
 #include <fstream> // Для роботи з файлами (ofstream)
 #include <sstream> // Для роботи з потоками в пам'яті (stringstream)
-#include <limits>// Для numeric_limits, потрібний для очищення буфера
-#include <windows.h> 
-#include <clocale>
 
 using namespace std;
 
@@ -402,15 +398,7 @@ public:
 
 // --- Основна функція для запуску та тестування ---
 int main() {
-    SetConsoleOutputCP(CP_UTF8);
-    SetConsoleCP(CP_UTF8);
-
-    // 2. Встановлення локалі C (для сумісності)
-    // У Windows може знадобитися встановити нейтральну UTF-8 локаль для коректної роботи std::cout
-    setlocale(LC_ALL, "C.UTF-8");
-
     
-    cout.sync_with_stdio(false);
     System app;
 
     cout << "============================================" << endl;
@@ -470,7 +458,8 @@ int main() {
     app.showRating();
 
     cout << "\nПрограма завершила тестування." << endl;
-
-    return 0; // При завершенні main() автоматично викликається деструктор app (неявний),
-    // який коректно звільняє вектори.
+     
+     
+    
+    return 0;
 }
